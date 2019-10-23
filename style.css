@@ -1,0 +1,183 @@
+/*Cascading Style Sheets for the "Fields and Finds Web Interface".*/
+
+/*Setting general formatting for the website*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#A9A9A9;
+}
+
+/*Setting formatting for the header */
+header {
+  background-color: #303030;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 5px solid white;
+}
+
+/*Setting formatting to adjust various heading tags*/
+h2 {
+  display: block;
+  font-size: 2.5vw;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h3 {
+  display: block;
+  font-size: 1.75vw;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h4 {
+  display: block;
+  font-size: 1vw;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h5 {
+  display: block;
+  font-size: 0.75vw;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+/*Setting format for the paragraph tag*/
+p {
+  font-size: 0.9vw;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 5px;
+}
+
+/*Setting up rows and two columns to for the display of the Field and Find map and tables*/
+.row {
+  content: "";
+  display: flex;
+  clear: both
+}
+.column1 {
+  padding: 10px;
+  background-color:#ccc;
+  float: left;
+  width: 40%;
+  font-size: 1vw;
+}
+.column2 {
+  padding: 10px;
+  background-color:#ccc;
+  float: left;
+  width: 60%;
+  font-size: 1vw;
+}
+
+/*Formatting for the Field and Find map, tables and legend*/
+.table_head {
+  background-color: #aaa;
+  font-size: 0.9vw;
+  text-align: left;
+  cursor: pointer;
+}
+.table_body {
+  font-size: 0.9vw;
+  text-align: left;
+  width: 100%;
+}
+.table_box  {
+  background-color: #eee;
+  border: 3px solid black;
+  box-shadow: 7px 7px #888888;
+  padding: 5px;
+}
+.grid {
+  stroke: #aaa;
+  stroke-width: 0.03;
+}
+.grid_legend {
+  stroke: #aaa;
+  stroke-width: 0.015;
+}
+.field {
+  stroke: black;
+  stroke-width: 0.06;
+  opacity: 0.7;
+}
+.field_legend {
+  stroke: black;
+  stroke-width: 0.01;
+  opacity: 0.7;
+}
+.find {
+  fill: #6495ed;
+  stroke: black;
+  stroke-width: 0.04;
+  opacity: 0.8;
+}
+.find_legend {
+  fill: #6495ed;
+  stroke: black;
+  stroke-width: 0.02;
+  opacity: 0.8;
+}
+
+/*Formatting for "FIELD" hover over*/
+.fields-highlight {
+  fill: #aaa;
+  opacity: 0.7;
+}
+.finds-highlight {
+  fill: #aaa;
+  opacity: 0.8;
+}
+
+/*Formatting to permit the hover over of SVG elements to work when mouse is over the labels*/
+.label_field {
+  cursor: default;
+  pointer-events: none;
+}
+.label_find {
+  cursor: default;
+  pointer-events: none;
+}
+/*Setting formatting for the Section*/
+section:after {
+  content:"";
+  display: table;
+  clear: both;
+}
+
+/*Formatting for the website's footer*/
+.ff_footer {
+   width: 100%;
+   background-color: #303030;
+   color: white;
+   font-weight: bold;
+   text-align: center;
+}
+
+/*Formatting the rows of the "FIND" and "FIELD" tables to be alternating colours*/
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+/*Formatting for the buttons used to turn "FINDS", "FIELDS", "COORDINATE GRID" on an off*/
+.button {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.7vw;
+  cursor: pointer;
+  text-align: center;
+  border:0.2em solid black;
+  outline: none;
+  color: black;
+  background-color: #eee;
+  border-radius: 15px;
+  box-shadow: 4px 4px #888888;
+}
+.button:hover {
+  background-color: white
+}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

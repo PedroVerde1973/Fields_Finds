@@ -1,0 +1,336 @@
+Content-Type: text/html
+
+<!DOCTYPE html>
+
+<head>
+  <!--Path to the external CSS file-->
+  <link href="../style.css" rel="stylesheet" type="text/css" >
+
+  <!--Website title-->
+  <title>Fields and Finds - A Web Interface</title>
+
+  <!--Javascript function which enables users to turn the "FIND" SVGs on the map on and off. Function is triggered when button is pressed.
+  Adapted from StackOverflow, 2018 (https://stackoverflow.com/questions/40140213/svg-how-to-show-hide-multiple-elements-on-a-button-click)-->
+  <script language="JavaScript">
+  function hideFINDS() {
+    var obj = document.getElementsByClassName('find');
+      for(var i=0;i<obj.length;i++){
+        if(obj[i].style.display === "none"){
+            obj[i].style.display = "block";
+	}
+	else{
+            obj[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <!--Javascript function which enables users to turn the "FIELD" SVGs on the map on and off. Function is triggered when button is pressed.
+  Adapted from StackOverflow, 2018 (https://stackoverflow.com/questions/40140213/svg-how-to-show-hide-multiple-elements-on-a-button-click)-->
+  <script>
+  function hideFIELDS() {
+    var obj = document.getElementsByClassName('field');
+      for(var k=0;k<obj.length;k++){
+        if(obj[k].style.display === "none"){
+            obj[k].style.display = "block";
+	}
+	else{
+            obj[k].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <!--Javascript function which enables users to turn the "COORDINATE GRID" SVGs on the map on and off. Function is triggered when button is pressed.
+   Adapted from StackOverflow, 2018 (https://stackoverflow.com/questions/40140213/svg-how-to-show-hide-multiple-elements-on-a-button-click)-->
+  <script>
+  function hideGRID() {
+    var obj = document.getElementsByClassName('grid');
+      for(var i=0;i<obj.length;i++){
+        if(obj[i].style.display === "none"){
+            obj[i].style.display = "block";
+	}
+	else{
+            obj[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <!--Javascript function to enable users to sort columns in the "FINDS" table.  Function is triggered when a column header is pressed.
+  Adapted from W3Schools, 2018 (https://www.w3schools.com/howto/howto_js_sort_table.asp)-->
+  <script>
+  function sortFindTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("FindTable");
+    switching = true;
+    /*Set the sorting direction to ascending:*/
+    dir = "asc";
+    /* A loop that will continue until no switching has been done: */
+    while (switching) {
+      /*Set start state to: no switching is done:*/
+      switching = false;
+      rows = table.rows;
+      /* Loop through all table rows (except the first, which contains the table headers): */
+      for (i = 1; i < (rows.length - 1); i++) {
+        /*Set the start state to be no switching:*/
+        shouldSwitch = false;
+        /* Get two elements you want to compare, one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+	    /* Check if the two rows should switch place, based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            /*If yes, mark as a switch and break the loop:*/
+            shouldSwitch = true;
+            break;
+          }
+        }
+        else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+           break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+      }
+      else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+  </script>
+
+  <!--Javascript function to enable users to sort columns in the "FIELDS" table.  Function is triggered when a column header is pressed.
+  Adapted from W3Schools, 2018 (https://www.w3schools.com/howto/howto_js_sort_table.asp)-->
+  <script>
+  function sortFieldTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("FieldTable");
+    switching = true;
+    /*Set the sorting direction to ascending:*/
+    dir = "asc";
+    /* A loop that will continue until no switching has been done: */
+    while (switching) {
+      /*Set start state to: no switching is done:*/
+      switching = false;
+      rows = table.rows;
+      /* Loop through all table rows (except the first, which contains the table headers): */
+      for (i = 1; i < (rows.length - 1); i++) {
+        /*Set the start state to be no switching:*/
+        shouldSwitch = false;
+        /* Get two elements you want to compare, one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+	    /* Check if the two rows should switch place, based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            /*If yes, mark as a switch and break the loop:*/
+            shouldSwitch = true;
+            break;
+          }
+        }
+        else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+           break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+      }
+      else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <!--Header for the website's title and subtitle-->
+  <header>
+    <h2>Fields and Finds</h2>
+    <h4>A Web Interface</h4>
+  </header>
+
+  <section>
+    <!--Website's introduction information-->
+    <div>
+      <table>
+	    <br>
+	    <h4>Welcome to <i>"Fields and Finds"</i> - A Web Interface</h4>
+	    <p class="introduction">Following the recent discovery of several important archaeological finds in farmers' fields located near the city of Edinburgh,
+      Scotland, a relational database was designed and implemented to assist with the ongoing management and protection of the discoveries, and to aid
+	    researchers and local farmers in planning their activities. To assist with this, a web interface has been developed to provide users with
+	    a one-stop site where they can learn more about the archaeological finds and the fields they are located in. The web interface provides
+	    information on both spatial (location) and aspatial (non-spatial information about each field and find) aspects of the fields and finds.</p>
+	    <p class="introduction">Use the map and tables below to learn more about each find and field. The find and field labels in the map correspond with the find and
+	    field numbers in the table. Hovering over each find or field in the map information will reveal more information about each field and find.
+	    As more finds and fields are added with time, the maps will automatically update to reflect the changes.</p>
+	    <br>
+      </table>
+    </div>
+
+    <div class="row">
+      <!--Sets up the SVG Fields and Finds map. Several Python functions in the accompanying Python script (fields_finds.py) are used to query the "FIND" and
+      "FIELD" database tables to determine the coordinates/bounds/labelling for each SVG element (Viewbox, "FINDS","FIELDS" and "COORDINATE GRID").The results
+      of the Python script are passed to this HTML script for display using Jinga. Variables passed from the Python script contained by double "{}" -->
+      <div class="column1">
+	       <h3>Fields and Finds Map</h3>
+	        <table>
+            <tr><th>Hover over each "field" or "find" to learn more</th></tr>
+          </table>
+
+	         <!--Set up the viewbox for the SVG map. -->
+	       <svg class="table_box" width=85% viewbox="{{inp_minx}} {{inp_miny}} {{inp_maxx}} {{inp_maxy}}">
+	          <!--Set up the the vertical and horizontal lines and labels for the map's coordinate grid-->
+	          {{inp_gridv}}
+	          <text class="grid" x="5.9" y="17" font-size="0.4" fill="grey" >X</text>
+	          {{inp_gridh}}
+	          <text class="grid" x="-0.8" y="8.7" font-size="0.4" fill="grey" >Y</text>
+	          <!--Apply a translation and scale to the "FIND" and "FIELD" SVG elements in orer to plot them correctly on the map-->
+	          <g transform="translate(0,16) scale(1,-1)" >
+	             <!--Draw the "FIELD" rectangles and "FIND" circles on the map-->
+	             {{inp_field_rect}}
+               {{inp_find_circ}}
+            </g>
+	          <!--Draw the "FIELD" and "FIND" labels on each field and find-->
+	          {{inp_field_label}}
+            {{inp_find_label}}
+
+	          <!--JavaScript which enables to change the colour of each "FIND" by hovering over each element. The find's colour reverts back
+	          to the original colour when the mouse is moved away from the element. Adapted from Peter Collingridge, 2018
+            (http://www.petercollingridge.co.uk/tutorials/svg/interactive/mouseover-effects/)-->
+            <script><![CDATA[
+              var finds = document.getElementsByClassName('find');
+              for (var i = 0; i < finds.length; i++) {
+                finds[i].addEventListener('mouseover', mouseOverEffect);
+                finds[i].addEventListener('mouseout', mouseOutEffect);
+              }
+              function mouseOverEffect() {
+                this.classList.add("finds-highlight");
+              }
+              function mouseOutEffect() {
+                this.classList.remove("finds-highlight");
+              }
+            ]]></script>
+
+	          <!--JavaScript which enables to change the colour of each "FIELD" by hovering over each element. The field's colour reverts back
+	          to the original colour when the mouse is moved away from the element. Adapted from Peter Collingridge, 2018
+            (http://www.petercollingridge.co.uk/tutorials/svg/interactive/mouseover-effects/)-->
+            <script><![CDATA[
+              var fields = document.getElementsByClassName("field");
+              for (var i = 0; i < fields.length; i++) {
+                fields[i].addEventListener('mouseover', mouseOverEffect);
+                fields[i].addEventListener('mouseout', mouseOutEffect);
+              }
+              function mouseOverEffect() {
+                this.classList.add("fields-highlight");
+              }
+              function mouseOutEffect() {
+                this.classList.remove("fields-highlight");
+              }
+            ]]></script>
+	         </svg>
+
+	       <table>
+           <tr><th>Use the buttons to toggle the fields and finds</th></tr>
+         </table>
+	       <!--Buttons which enable a user to turn "FINDS", "FIELDS" and the "COORDINATE GRID" off and on-->
+         <p><button class="button" onclick="hideFINDS();">Hide/Show Finds</button>  Click this button to hide all Finds</p>
+	       <p><button class="button" onclick="hideFIELDS();">Hide/Show Fields</button>  Click this button to hide all Fields</p>
+	       <p><button class="button" onclick="hideGRID();">Hide/Show the Grid</button>  Click this button to hide the Grid</p>
+      </div>
+
+      <div class="column2">
+	       <h3>Fields and Finds Tables</h3>
+	       <table>
+           <tr><th>Archaeological Finds <em>(click each column heading to sort)</em></th></tr>
+	       </table>
+	       <table class="table_box" id="FindTable" width=95%>
+	          <!--Set up the "FINDS" table based on results of an SQL query from the accompanying Python script (fields_finds.py) which queries the
+	          "FINDS" and "CLASS" database tables. The results of the Python script are passed to this HTML script for display using Jinga. Variables
+	          passed from the Python script contained by double "{}"-->
+            <tr class="table_head"><th onclick="sortFindTable(0)">Find Number</th><th onclick="sortFindTable(1)">Name</th><th onclick="sortFindTable(2)">Period</th><th onclick="sortFindTable(3)">Use</th><th onclick="sortFindTable(4)">X Coordinate</th><th onclick="sortFindTable(5)">Y Coordinate</th><th onclick="sortFindTable(6)">Depth (M)</th><th onclick="sortFindTable(7)">Field Notes</th></tr>
+	          <!--Draw the "FINDS"table-->
+	          {{inp_find_table}}
+	       </table>
+	       <br>
+
+	       <table>
+           <tr><th>Farmer's Fields <em>(click each column heading to sort)</em></th></tr>
+	       </table>
+	       <table class="table_box" id="FieldTable" width=95%>
+	          <!--Set up the "FIELDS" table based on results of an SQL query from the accompanying Python script (fields_finds.py) which queries the
+	          "FIELDS" and "CROPS" database tables. The results of the Python script are passed to this HTML script for display using Jinga. Variables
+	          passed from the Python script contained by double "{}"-->
+            <tr class="table_head"><th onclick="sortFieldTable(0)">Field Number</th><th onclick="sortFieldTable(1)">Field Owner</th><th onclick="sortFieldTable(2)">Field Size (Ha)</th><th onclick="sortFieldTable(3)">Crop</th><th onclick="sortFieldTable(4)">Field Coordinates <br>(LX, LY, UX, UY)</th><th onclick="sortFieldTable(5)">Start of Season<br>(DD-MM-YY)</th><th onclick="sortFieldTable(6)">End of Season<br>(DD-MM-YY)</th></tr>
+	          <!--Draw the "FIELDS" table-->
+            {{inp_field_table}}
+	       </table>
+	       <br>
+
+	       <table>
+           <tr><th>Map Legend</th></tr>
+	       </table>
+	       <table class="table_box" width=37%>
+           <tr><th>
+    	       <!--Draw and label a static legend for use with the Fields and Finds Map-->
+    	       <svg viewbox="0 0 2.2 1.35">
+    	          <circle class="find_legend" cx="0.2" cy="0.1" r="0.07"/>
+    	          <line class="grid_legend" x1="0.05" y1="0.3" x2="0.35" y2="0.3"></line>
+    	          <line class="grid_legend" x1="0.2" y1="0.25" x2="0.2" y2="0.35"></line>
+    	          <rect class="field_legend" x="0.05" y="0.62" width="0.3" height="0.2" fill='#dda0dd'/>
+          	    <rect class="field_legend" x="0.05" y="0.88" width="0.3" height="0.2" fill='#ffff96'/>
+          	    <rect class="field_legend" x="0.05" y="1.14" width="0.3" height="0.2" fill='#ec7063'/>
+          	    <rect class="field_legend" x="1.25" y="0.62" width="0.3" height="0.2" fill='#7dcea0'/>
+          	    <rect class="field_legend" x="1.25" y="0.88" width="0.3" height="0.2" fill='#cca883'/>
+                <text x="0.45" y="0.125" font-size='0.53%' fill='#303030'>Archaeological Find</text>
+          	    <text x="0.45" y="0.325" font-size='0.53%' fill='#303030'>Coordinate Grid</text>
+          	    <text x="0.05" y="0.55" font-size='0.63%' fill='#303030'>Fields by Crop</text>
+          	    <text x="0.45" y="0.73" font-size='0.53%' fill='#303030'>Turnips</text>
+          	    <text x="0.45" y="1" font-size='0.53%' fill='#303030'>Oil Seed Rape</text>
+          	    <text x="0.45" y="1.27" font-size='0.53%' fill='#303030'>Strawberries</text>
+          	    <text x="1.65" y="0.73" font-size='0.53%' fill='#303030'>Peas</text>
+          	    <text x="1.65" y="1" font-size='0.53%' fill='#303030'>Potatoes</text>
+    	       </svg>
+           </th></tr>
+	       </table>
+      </div>
+    </section>
+    <!--Footer section to define the bottom of the page and provide site details and author-->
+    <footer class="ff_footer">
+      <h5>--------------------</h5>
+      <h5>Site Design &copy; 2019 Fields and Finds</h5>
+      <h5>Brought to you by Exam Number B140990</h5>
+      <h5>Powered by the University of Edinburgh</h5>
+      <br>
+    </footer>
+  </body>
+</html>
