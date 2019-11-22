@@ -16,7 +16,11 @@ Spatial
 An interactive map constructed using Scalable Vector Graphics (SVG) has been included. The map represents the overall survey area, overlaid with a grid representing the pre-defined coordinate system, as well as individual finds, fields and their labels (figure 2). 
 Each SVG element and text are created based on coordinates stored in the fields and finds database tables. This includes the survey area box, fields and finds, the coordinate grid lines, labels and embedded descriptive feature text. This means that all map elements are fully dynamic and will reflect any future changes to the database tables, including the addition or deletion of new fields and finds.  The SVG elements and text elements are created and formatted via the python script and passed to the HTML script using Jinga.
 The embedded descriptive feature text, consisting of information queried from the database, provides users with details about each find and field via a tooltip that appears when an SVG feature is hovered over. This can be useful for quickly reviewing details of a given field or find. 
+
 Each field and find will change colour when hovered over to alert the user to which SCG element is being viewed. Using the buttons beneath the SVG mapping, the finds, fields or coordinate system can be turned on and off.  This can be helpful for users to be able examine each field and find independently of one another.  
+
 The fields and finds have been dynamically labelled according to their unique “id” in the respective database table. The labels can be used to cross-reference the finds and fields on the maps with the table records. The coordinate grid has also been labelled to permit users to locate fields and finds by their respective coordinate combinations.
+
 The fields are colour-coded based on the type of crop being grown. This has been determined through the database query. Finally, an SVG legend has been provided to describe each map feature and to explain which colour represents which crop.
+
 Please note that while the web interface works in all web browsers, some elements, specifically the tooltips, have been optimized to work best in Google Chrome.
