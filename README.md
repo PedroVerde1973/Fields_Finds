@@ -1,6 +1,7 @@
 # Fields_Finds
 Fields and Finds – A Web Interface
 Web URL: https://www.geos.ed.ac.uk/~s1887709/cgi-bin/fields_finds.py 
+
 Introduction
 Following the recent discovery of several important archaeological finds in farmers’ fields located near the city of Edinburgh, Scotland, a relational database system was designed and implemented to assist with the ongoing management and protection of the discoveries, and to aid researchers and local farmers in planning their respective activities. To assist with this, a web interface has been developed to provide users with a place where they can learn more about the archaeological finds, and the fields in which they are located. The web interface provides information on both spatial (mapping and locations) and aspatial (non-spatial information about each field and find) aspects of the fields and finds.
 
